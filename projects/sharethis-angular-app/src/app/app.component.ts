@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 
-import { StickyButtonsConfig, InlineShareButtonsConfig } from './config';
+import {
+  StickyButtonsConfig,
+  InlineShareButtonsConfig,
+  InlineFollowButtonsConfig,
+  InlineReactionButtonsConfig,
+} from './config';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +15,6 @@ import { StickyButtonsConfig, InlineShareButtonsConfig } from './config';
 export class AppComponent {
   stickyButtonsConfig = StickyButtonsConfig;
   inlineShareButtonsConfig = InlineShareButtonsConfig;
+  inlineFollowButtonsConfig = InlineFollowButtonsConfig;
+  inlineReactionButtonsConfig = InlineReactionButtonsConfig;
 }
