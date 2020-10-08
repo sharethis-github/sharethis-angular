@@ -2,5 +2,166 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "sharethis-angular": {
+      "projectType": "library",
+      "root": "projects/sharethis-angular",
+      "sourceRoot": "projects/sharethis-angular/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/sharethis-angular/tsconfig.lib.json",
+            "project": "projects/sharethis-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sharethis-angular/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sharethis-angular/src/test.ts",
+            "tsConfig": "projects/sharethis-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/sharethis-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sharethis-angular/tsconfig.lib.json",
+              "projects/sharethis-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sharethis-angular-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/sharethis-angular-app",
+      "sourceRoot": "projects/sharethis-angular-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/sharethis-angular-app",
+            "index": "projects/sharethis-angular-app/src/index.html",
+            "main": "projects/sharethis-angular-app/src/main.ts",
+            "polyfills": "projects/sharethis-angular-app/src/polyfills.ts",
+            "tsConfig": "projects/sharethis-angular-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/sharethis-angular-app/src/favicon.ico",
+              "projects/sharethis-angular-app/src/assets"
+            ],
+            "styles": [
+              "projects/sharethis-angular-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/sharethis-angular-app/src/environments/environment.ts",
+                  "with": "projects/sharethis-angular-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sharethis-angular-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sharethis-angular-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sharethis-angular-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sharethis-angular-app/src/test.ts",
+            "polyfills": "projects/sharethis-angular-app/src/polyfills.ts",
+            "tsConfig": "projects/sharethis-angular-app/tsconfig.spec.json",
+            "karmaConfig": "projects/sharethis-angular-app/karma.conf.js",
+            "assets": [
+              "projects/sharethis-angular-app/src/favicon.ico",
+              "projects/sharethis-angular-app/src/assets"
+            ],
+            "styles": [
+              "projects/sharethis-angular-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sharethis-angular-app/tsconfig.app.json",
+              "projects/sharethis-angular-app/tsconfig.spec.json",
+              "projects/sharethis-angular-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/sharethis-angular-app/e2e/protractor.conf.js",
+            "devServerTarget": "sharethis-angular-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sharethis-angular-app:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": false
+  },
+  "defaultProject": "sharethis-angular"
 }
