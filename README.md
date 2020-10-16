@@ -83,3 +83,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Todo:
+- Add watch mode to development
+- Reorganize project structure to have demo app inside `projects` folder inside the library.
+- Change prefix from `lib` to `st`
