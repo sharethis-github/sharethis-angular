@@ -83,6 +83,15 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Project structure
+The project is divided into two folders: `sharethis-angular` and `sharethis-angular-app` together with the common files. `sharethis-angular-app` is the demo application that makes use of `sharethis-angular` like shown on the `how to use` section.
+
+The library is a simple library with 4 components, a types declaration file and a file dedicated to the load script of sharethis content.
+
+The application is a simple application with just one component that calls all of the `sharethis-angular` components.
+
+Both projects support test, e2e test have their dedicated folder and unit and integration tests can be in a file with `*.spec.ts` as extension.
+
 ## Todo:
 - Add watch mode to development
 - Reorganize project structure to have demo app inside `projects` folder inside the library.
