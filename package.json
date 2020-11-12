@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng b --project=sharethis-angular-app --prod --base-href https://sharethis-github.github.io/sharethis-angular/ && npx ngh --dir=dist/sharethis-angular-app"
   },
   "private": true,
   "dependencies": {
@@ -27,9 +28,10 @@
     "@angular-devkit/build-angular": "~0.1001.4",
     "@angular/cli": "~10.1.2",
     "@angular/compiler-cli": "~10.1.2",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "angular-cli-ghpages": "^0.6.2",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
