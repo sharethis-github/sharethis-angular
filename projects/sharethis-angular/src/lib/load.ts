@@ -43,7 +43,7 @@ export default function (component, product) {
     const params = {
       property: config.property || '',
       product: product,
-      source: 'reactjs',
+      source: 'angularjs',
     };
     const query = Object.keys(params)
       .map((key) => key + '=' + params[key])

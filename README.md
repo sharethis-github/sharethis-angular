@@ -1,5 +1,9 @@
 # Sharethis Share Buttons - Angular
 
+## Demo
+
+[View the live demo here](https://sharethis-github.github.io/sharethis-angular/)
+
 ## How to use it
 - Install the library using ... // TODO: Add library to npm when ready
 - Add the library module to your imports
