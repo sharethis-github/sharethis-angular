@@ -10,7 +10,7 @@ import load from '../load';
 import { InlineReactionButtonsConfig } from '../types';
 
 @Component({
-  selector: 'lib-inline-reaction-buttons',
+  selector: 'st-inline-reaction-buttons',
   template: '<div #buttons>&nbsp;</div>',
 })
 export class InlineReactionButtonsComponent implements OnInit {

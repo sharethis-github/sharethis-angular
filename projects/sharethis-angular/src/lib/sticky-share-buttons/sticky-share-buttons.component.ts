@@ -10,7 +10,7 @@ import load from '../load';
 import { StickyShareButtonsConfig } from '../types';
 
 @Component({
-  selector: 'lib-sticky-share-buttons',
+  selector: 'st-sticky-share-buttons',
   template: '<div #buttons>&nbsp;</div>',
 })
 export class StickyShareButtonsComponent implements OnInit {

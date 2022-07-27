@@ -10,7 +10,7 @@ import load from '../load';
 import { InlineFollowButtonsConfig } from '../types';
 
 @Component({
-  selector: 'lib-inline-follow-buttons',
+  selector: 'st-inline-follow-buttons',
   template: '<div #buttons>&nbsp;</div>',
 })
 export class InlineFollowButtonsComponent implements OnInit {

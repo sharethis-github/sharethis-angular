@@ -1,9 +1,9 @@
 {
   "name": "sharethis-angular",
-  "version": "0.0.1",
+  "version": "1.0.3",
   "peerDependencies": {
-    "@angular/common": "^10.1.4",
-    "@angular/core": "^10.1.4"
+    "@angular/common": "^11.0.8",
+    "@angular/core": "^11.0.8"
   },
   "dependencies": {
     "tslib": "^2.0.0"

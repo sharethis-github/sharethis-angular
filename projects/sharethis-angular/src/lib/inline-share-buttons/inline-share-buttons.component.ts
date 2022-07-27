@@ -10,7 +10,7 @@ import load from '../load';
 import { InlineShareButtonsConfig } from '../types';
 
 @Component({
-  selector: 'lib-inline-share-buttons',
+  selector: 'st-inline-share-buttons',
   template: '<div #buttons>&nbsp;</div>',
 })
 export class InlineShareButtonsComponent implements OnInit {
