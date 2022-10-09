@@ -1,4 +1,11 @@
-export const StickyButtonsConfig = {
+import {
+  InlineFollowButtonsConfig as InlineFollowButtonsConfigType,
+  InlineShareButtonsConfig as InlineShareButtonsConfigType,
+  InlineReactionButtonsConfig as InlineReactionButtonsConfigType,
+  StickyShareButtonsConfig as StickyShareButtonsConfigType,
+} from 'sharethis-angular';
+
+export const StickyShareButtonsConfig: StickyShareButtonsConfigType = {
   alignment: 'left', // alignment of buttons (left, right)
   color: 'social', // set the color of buttons (social, white)
   enabled: true, // show/hide buttons (true, false)
@@ -33,7 +40,7 @@ export const StickyButtonsConfig = {
   username: 'custom twitter handle', // (only for twitter sharing)
 };
 
-export const InlineShareButtonsConfig = {
+export const InlineShareButtonsConfig: InlineShareButtonsConfigType = {
   alignment: 'center', // alignment of buttons (left, center, right)
   color: 'social', // set the color of buttons (social, white)
   enabled: true, // show/hide buttons (true, false)
@@ -63,7 +70,7 @@ export const InlineShareButtonsConfig = {
   username: 'custom twitter handle', // (only for twitter sharing)
 };
 
-export const InlineReactionButtonsConfig = {
+export const InlineReactionButtonsConfig: InlineReactionButtonsConfigType = {
   alignment: 'center', // alignment of buttons (left, center, right)
   enabled: true, // show/hide buttons (true, false)
   language: 'en', // which language to use (see LANGUAGES)
@@ -80,14 +87,16 @@ export const InlineReactionButtonsConfig = {
   ],
   size: 48, // the size of each button (INTEGER)
   spacing: 8, // the spacing between buttons (INTEGER)
+  radius: 8, // the corner radius on each button (INTEGER)
+  show_total: false, // show total count (BOOLEAN)
 
   // OPTIONAL PARAMETERS
   url: 'https://www.sharethis.com', // (defaults to current url)
 };
 
-export const InlineFollowButtonsConfig = {
+export const InlineFollowButtonsConfig: InlineFollowButtonsConfigType = {
   action: 'Follow us:', // call to action (STRING)
-  action_enable: true, // show/hide call to action (true, false)
+  action_enabled: true, // show/hide call to action (true, false)
   action_pos: 'bottom', // position of call to action (left, top, right)
   alignment: 'center', // alignment of buttons (left, center, right)
   color: 'white', // set the color of buttons (social, white)

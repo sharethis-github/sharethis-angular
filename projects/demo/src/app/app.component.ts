@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import {
-  StickyButtonsConfig,
+  StickyShareButtonsConfig,
   InlineShareButtonsConfig,
   InlineFollowButtonsConfig,
   InlineReactionButtonsConfig,
@@ -13,7 +13,7 @@ import {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  stickyButtonsConfig = StickyButtonsConfig;
+  stickyButtonsConfig = StickyShareButtonsConfig;
   inlineShareButtonsConfig = InlineShareButtonsConfig;
   inlineFollowButtonsConfig = InlineFollowButtonsConfig;
   inlineReactionButtonsConfig = InlineReactionButtonsConfig;

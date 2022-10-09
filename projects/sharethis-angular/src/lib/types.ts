@@ -1,57 +1,94 @@
 export type SharingNetwork =
-  | 'blogger'
-  | 'delicious'
-  | 'digg'
-  | 'email'
   | 'facebook'
-  | 'flipboard'
-  | 'google'
-  | 'linkedin'
-  | 'livejournal'
-  | 'mailru'
-  | 'meneame'
-  | 'messenger'
-  | 'oknoklassniki'
-  | 'pinterest'
-  | 'print'
-  | 'reddit'
-  | 'sms'
-  | 'stumbleupon'
-  | 'tumblr'
   | 'twitter'
-  | 'vk'
-  | 'wechat'
-  | 'weibo'
+  | 'email'
+  | 'sms'
+  | 'sharethis'
+  | 'linkedin'
+  | 'messenger'
+  | 'pinterest'
+  | 'reddit'
+  | 'tumblr'
+  | 'digg'
   | 'whatsapp'
-  | 'xing';
+  | 'iorbix'
+  | 'kakao'
+  | 'kindleit'
+  | 'kooapp'
+  | 'outlook'
+  | 'tencentqq'
+  | 'trello'
+  | 'viber'
+  | 'yummly'
+  | 'vk'
+  | 'weibo'
+  | 'odnoklassniki'
+  | 'xing'
+  | 'print'
+  | 'blogger'
+  | 'flipboard'
+  | 'snapchat'
+  | 'meneame'
+  | 'mailru'
+  | 'livejournal'
+  | 'wechat'
+  | 'buffer'
+  | 'diaspora'
+  | 'douban'
+  | 'evernote'
+  | 'googlebookmarks'
+  | 'gmail'
+  | 'hackernews'
+  | 'instapaper'
+  | 'line'
+  | 'getpocket'
+  | 'qzone'
+  | 'refind'
+  | 'renren'
+  | 'surfingbird'
+  | 'skype'
+  | 'telegram'
+  | 'threema'
+  | 'yahoomail'
+  | 'wordpress'
+  | 'blm';
 
 export type FollowNetwork =
+  | 'facebook'
+  | 'twitter'
+  | 'instagram'
+  | 'youtube'
+  | 'flipboard'
+  | 'linkedin'
   | 'blogger'
   | 'digg'
-  | 'facebook'
-  | 'flipboard'
   | 'github'
-  | 'instagram'
   | 'medium'
   | 'messenger'
-  | 'linkedin'
-  | 'oknoklassniki'
+  | 'odnoklassniki'
   | 'patreon'
   | 'pinterest'
   | 'quora'
   | 'reddit'
   | 'snapchat'
-  | 'soundcloudm'
+  | 'soundcloud'
   | 'spotify'
   | 'telegram'
   | 'tumblr'
   | 'twitch'
-  | 'twitter'
   | 'vk'
   | 'wechat'
   | 'weibo'
   | 'yelp'
-  | 'youtube';
+  | 'airbnb'
+  | 'amazon'
+  | 'discord'
+  | 'etsy'
+  | 'houzz'
+  | 'tiktok'
+  | 'tripadvisor'
+  | 'vimeo'
+  | 'zillow';
 
 export type Reaction =
   | 'slight_smile'
@@ -115,9 +152,14 @@ export type InlineReactionButtonsConfig = {
   reactions: Reaction[];
   /** the corner radius on each button */
   radius: number;
+  /** show total count of shares */
   show_total: boolean;
   /** the size of each button */
   size: number;
+  /** spacing between buttons */
+  spacing: number;
+  /** the url to share, defaults to current url */
+  url?: string;
 };
 
 export type InlineFollowButtonsConfig = {
@@ -138,11 +180,15 @@ export type InlineFollowButtonsConfig = {
   /** padding within buttons */
   padding: number;
   /** social profile links for buttons */
-  profiles: { [key in FollowNetwork]: string };
+  profiles: { [key in FollowNetwork]?: string };
   /** the corner radius on each button */
   radius: number;
   /** the size of each button */
   size: number;
+  /** spacing between buttons */
+  spacing: number;
+  /** the url to share, defaults to current url */
+  url?: string;
 };
 
 export type StickyShareButtonsConfig = {
@@ -175,6 +221,8 @@ export type StickyShareButtonsConfig = {
   size: number;
   /** offset in pixels from the top of the page */
   top: number;
+  /** offset in pixels from the top of the page */
+  hide_desktop: boolean;
 
   /** the url to share, defaults to current url */
   url?: string;

@@ -12,14 +12,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/sharethis-angular/tsconfig.lib.json",
             "project": "projects/sharethis-angular/ng-package.json"
           },
           "configurations": {
             "production": {
               "tsConfig": "projects/sharethis-angular/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/sharethis-angular/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -28,140 +31,101 @@
             "tsConfig": "projects/sharethis-angular/tsconfig.spec.json",
             "karmaConfig": "projects/sharethis-angular/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/sharethis-angular/tsconfig.lib.json",
-              "projects/sharethis-angular/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
-    "sharethis-angular-app": {
+    "demo": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/sharethis-angular-app",
-      "sourceRoot": "projects/sharethis-angular-app/src",
+      "root": "projects/demo",
+      "sourceRoot": "projects/demo/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sharethis-angular-app",
-            "index": "projects/sharethis-angular-app/src/index.html",
-            "main": "projects/sharethis-angular-app/src/main.ts",
-            "polyfills": "projects/sharethis-angular-app/src/polyfills.ts",
-            "tsConfig": "projects/sharethis-angular-app/tsconfig.app.json",
-            "aot": true,
+            "outputPath": "dist/demo",
+            "index": "projects/demo/src/index.html",
+            "main": "projects/demo/src/main.ts",
+            "polyfills": "projects/demo/src/polyfills.ts",
+            "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
-              "projects/sharethis-angular-app/src/favicon.ico",
-              "projects/sharethis-angular-app/src/assets"
+              "projects/demo/src/favicon.ico",
+              "projects/demo/src/assets"
             ],
-            "styles": [
-              "projects/sharethis-angular-app/src/styles.css"
-            ],
+            "styles": ["projects/demo/src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/sharethis-angular-app/src/environments/environment.ts",
-                  "with": "projects/sharethis-angular-app/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
-              ]
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/demo/src/environments/environment.ts",
+                  "with": "projects/demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "sharethis-angular-app:build"
-          },
           "configurations": {
             "production": {
-              "browserTarget": "sharethis-angular-app:build:production"
+              "browserTarget": "demo:build:production"
+            },
+            "development": {
+              "browserTarget": "demo:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sharethis-angular-app:build"
+            "browserTarget": "demo:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/sharethis-angular-app/src/test.ts",
-            "polyfills": "projects/sharethis-angular-app/src/polyfills.ts",
-            "tsConfig": "projects/sharethis-angular-app/tsconfig.spec.json",
-            "karmaConfig": "projects/sharethis-angular-app/karma.conf.js",
+            "main": "projects/demo/src/test.ts",
+            "polyfills": "projects/demo/src/polyfills.ts",
+            "tsConfig": "projects/demo/tsconfig.spec.json",
+            "karmaConfig": "projects/demo/karma.conf.js",
             "assets": [
-              "projects/sharethis-angular-app/src/favicon.ico",
-              "projects/sharethis-angular-app/src/assets"
+              "projects/demo/src/favicon.ico",
+              "projects/demo/src/assets"
             ],
-            "styles": [
-              "projects/sharethis-angular-app/src/styles.css"
-            ],
+            "styles": ["projects/demo/src/styles.css"],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/sharethis-angular-app/tsconfig.app.json",
-              "projects/sharethis-angular-app/tsconfig.spec.json",
-              "projects/sharethis-angular-app/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/sharethis-angular-app/e2e/protractor.conf.js",
-            "devServerTarget": "sharethis-angular-app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "sharethis-angular-app:serve:production"
-            }
           }
         }
       }
-    }},
+    }
+  },
   "cli": {
     "analytics": false
-  },
-  "defaultProject": "sharethis-angular"
+  }
 }
