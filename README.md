@@ -25,18 +25,21 @@
   export class AppModule {}
   ```
 
-- To the component where you wanna use the library components you need to pass a config object to the desired share buttons selector, which can be: `st-inline-share-buttons`, `st-inline-follow-buttons`, `st-sticky-share-buttons`, `st-inline-reaction-buttons`. e.i: the html markup would be:
+- There are four types of components: `st-inline-share-buttons`, `st-inline-follow-buttons`, `st-sticky-share-buttons` and `st-inline-reaction-buttons`.
+
+- All of the components receive a config param, for example:
 
   ```js
     <st-inline-share-buttons [config]="inlineShareButtonsConfig">
   ```
 
-  While the component file would declare `inlineShareButtonsConfig` like so:
+- Example of the InlineShareButtons implementation:
 
   ```js
   import { Component } from "@angular/core";
+  import { InlineShareButtonsConfig } from "sharethis-angular";
 
-  const InlineShareButtonsConfig: InlineShareButtonsConfig = {
+  const inlineShareButtonsConfig: InlineShareButtonsConfig = {
     alignment: "center", // alignment of buttons (left, center, right)
     color: "social", // set the color of buttons (social, white)
     enabled: true, // show/hide buttons (true, false)
@@ -68,12 +71,11 @@
 
   @Component({
     selector: "app-root",
-    templateUrl:
-      '<st-inline-share-buttons [config]="inlineShareButtonsConfig">',
+    templateUrl: '<st-inline-share-buttons [config]="config">',
     styleUrls: ["./app.component.css"],
   })
   export class AppComponent {
-    inlineShareButtonsConfig = InlineShareButtonsConfig;
+    config = inlineShareButtonsConfig;
   }
   ```
 

@@ -1,24 +1,80 @@
-# SharethisAngular
+# sharethis-angular
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+## Demo
 
-## Code scaffolding
+[View the live demo here](https://sharethis-github.github.io/sharethis-angular/)
 
-Run `ng generate component component-name --project sharethis-angular` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project sharethis-angular`.
-> Note: Don't forget to add `--project sharethis-angular` or else it will be added to the default project in your `angular.json` file. 
+## How to use it
 
-## Build
+- Install the library using `npm install sharethis-angular`
+- Add the library module to your imports
 
-Run `ng build sharethis-angular` to build the project. The build artifacts will be stored in the `dist/` directory.
+  ```js
+  import { BrowserModule } from "@angular/platform-browser";
+  import { NgModule } from "@angular/core";
 
-## Publishing
+  import { AppComponent } from "./app.component";
+  import { SharethisAngularModule } from "sharethis-angular";
 
-After building your library with `ng build sharethis-angular`, go to the dist folder `cd dist/sharethis-angular` and run `npm publish`.
+  @NgModule({
+    declarations: [AppComponent],
+    imports: [BrowserModule, SharethisAngularModule],
+    providers: [],
+    bootstrap: [AppComponent],
+  })
+  export class AppModule {}
+  ```
 
-## Running unit tests
+- There are four types of components: `st-inline-share-buttons`, `st-inline-follow-buttons`, `st-sticky-share-buttons` and `st-inline-reaction-buttons`.
 
-Run `ng test sharethis-angular` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- All of the components receive a config param, for example:
 
-## Further help
+  ```js
+    <st-inline-share-buttons [config]="inlineShareButtonsConfig">
+  ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Example of the InlineShareButtons implementation:
+
+  ```js
+  import { Component } from "@angular/core";
+  import { InlineShareButtonsConfig } from "sharethis-angular";
+
+  const inlineShareButtonsConfig: InlineShareButtonsConfig = {
+    alignment: "center", // alignment of buttons (left, center, right)
+    color: "social", // set the color of buttons (social, white)
+    enabled: true, // show/hide buttons (true, false)
+    font_size: 16, // font size for the buttons
+    labels: "cta", // button labels (cta, counts, null)
+    language: "en", // which language to use (see LANGUAGES)
+    networks: [
+      // which networks to include (see SHARING NETWORKS)
+      "whatsapp",
+      "linkedin",
+      "messenger",
+      "facebook",
+      "twitter",
+    ],
+    padding: 12, // padding within buttons (INTEGER)
+    radius: 4, // the corner radius on each button (INTEGER)
+    show_total: true,
+    size: 40, // the size of each button (INTEGER)
+
+    // OPTIONAL PARAMETERS
+    url: "https://www.sharethis.com", // (defaults to current url)
+    image: "https://bit.ly/2CMhCMC", // (defaults to og:image or twitter:image)
+    description: "custom text", // (defaults to og:description or twitter:description)
+    title: "custom title", // (defaults to og:title or twitter:title)
+    message: "custom email text", // (only for email sharing)
+    subject: "custom email subject", // (only for email sharing)
+    username: "custom twitter handle", // (only for twitter sharing)
+  };
+
+  @Component({
+    selector: "app-root",
+    templateUrl: '<st-inline-share-buttons [config]="config">',
+    styleUrls: ["./app.component.css"],
+  })
+  export class AppComponent {
+    config = inlineShareButtonsConfig;
+  }
+  ```
