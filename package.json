@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng b --project=demo --prod --base-href https://sharethis-github.github.io/sharethis-angular/ && npx ngh --dir=dist/demo"
+    "deploy": "ng deploy --project=demo --base-href=https://sharethis-github.github.io/sharethis-angular/"
   },
   "dependencies": {
     "@angular/animations": "^14.1.0",
@@ -27,6 +27,7 @@
     "@angular/cli": "~14.1.0",
     "@angular/compiler-cli": "^14.1.0",
     "@types/jasmine": "~4.0.0",
+    "angular-cli-ghpages": "^1.0.3",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
