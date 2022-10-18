@@ -9,6 +9,16 @@ import {
 import load from '../load';
 import { InlineReactionButtonsConfig } from '../types';
 
+const DEFAULT_CONFIG: Partial<InlineReactionButtonsConfig> = {
+  alignment: 'center',
+  enabled: true,
+  language: 'en',
+  min_count: 0,
+  padding: 12,
+  size: 40,
+  spacing: 8,
+};
+
 @Component({
   selector: 'st-inline-reaction-buttons',
   template: '<div #buttons>&nbsp;</div>',
@@ -27,7 +37,7 @@ export class InlineReactionButtonsComponent implements OnInit {
   ngAfterViewInit() {
     load(
       {
-        config: this.config,
+        config: { ...DEFAULT_CONFIG, ...this.config },
         buttons: this.buttons.nativeElement,
       },
       'inline-reaction-buttons'

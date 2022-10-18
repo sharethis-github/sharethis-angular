@@ -6,14 +6,6 @@ import {
 } from 'sharethis-angular';
 
 export const StickyShareButtonsConfig: StickyShareButtonsConfigType = {
-  alignment: 'left', // alignment of buttons (left, right)
-  color: 'social', // set the color of buttons (social, white)
-  enabled: true, // show/hide buttons (true, false)
-  font_size: 16, // font size for the buttons
-  hide_desktop: false, // hide buttons on desktop (true, false)
-  labels: 'counts', // button labels (cta, counts, null)
-  language: 'en', // which language to use (see LANGUAGES)
-  min_count: 0, // hide react counts less than min_count (INTEGER)
   networks: [
     // which networks to include (see SHARING NETWORKS)
     'linkedin',
@@ -22,13 +14,6 @@ export const StickyShareButtonsConfig: StickyShareButtonsConfigType = {
     'pinterest',
     'email',
   ],
-  padding: 12, // padding within buttons (INTEGER)
-  radius: 4, // the corner radius on each button (INTEGER)
-  show_total: true, // show/hide the total share count (true, false)
-  show_mobile: true, // show/hide the buttons on mobile (true, false)
-  show_toggle: true, // show/hide the toggle buttons (true, false)
-  size: 48, // the size of each button (INTEGER)
-  top: 160, // offset in pixels from the top of the page
 
   // OPTIONAL PARAMETERS
   url: 'https://www.sharethis.com', // (defaults to current url)
@@ -41,12 +26,6 @@ export const StickyShareButtonsConfig: StickyShareButtonsConfigType = {
 };
 
 export const InlineShareButtonsConfig: InlineShareButtonsConfigType = {
-  alignment: 'center', // alignment of buttons (left, center, right)
-  color: 'social', // set the color of buttons (social, white)
-  enabled: true, // show/hide buttons (true, false)
-  font_size: 16, // font size for the buttons
-  labels: 'cta', // button labels (cta, counts, null)
-  language: 'en', // which language to use (see LANGUAGES)
   networks: [
     // which networks to include (see SHARING NETWORKS)
     'whatsapp',
@@ -55,10 +34,6 @@ export const InlineShareButtonsConfig: InlineShareButtonsConfigType = {
     'facebook',
     'twitter',
   ],
-  padding: 12, // padding within buttons (INTEGER)
-  radius: 4, // the corner radius on each button (INTEGER)
-  show_total: true,
-  size: 40, // the size of each button (INTEGER)
 
   // OPTIONAL PARAMETERS
   url: 'https://www.sharethis.com', // (defaults to current url)
@@ -71,11 +46,6 @@ export const InlineShareButtonsConfig: InlineShareButtonsConfigType = {
 };
 
 export const InlineReactionButtonsConfig: InlineReactionButtonsConfigType = {
-  alignment: 'center', // alignment of buttons (left, center, right)
-  enabled: true, // show/hide buttons (true, false)
-  language: 'en', // which language to use (see LANGUAGES)
-  min_count: 0, // hide react counts less than min_count (INTEGER)
-  padding: 12, // padding within buttons (INTEGER)
   reactions: [
     // which reactions to include (see REACTIONS)
     'slight_smile',
@@ -85,22 +55,12 @@ export const InlineReactionButtonsConfig: InlineReactionButtonsConfigType = {
     'sob',
     'rage',
   ],
-  size: 48, // the size of each button (INTEGER)
-  spacing: 8, // the spacing between buttons (INTEGER)
-  radius: 8, // the corner radius on each button (INTEGER)
-  show_total: false, // show total count (BOOLEAN)
 
   // OPTIONAL PARAMETERS
   url: 'https://www.sharethis.com', // (defaults to current url)
 };
 
 export const InlineFollowButtonsConfig: InlineFollowButtonsConfigType = {
-  action: 'Follow us:', // call to action (STRING)
-  action_enabled: true, // show/hide call to action (true, false)
-  action_pos: 'bottom', // position of call to action (left, top, right)
-  alignment: 'center', // alignment of buttons (left, center, right)
-  color: 'white', // set the color of buttons (social, white)
-  enabled: true, // show/hide buttons (true, false)
   networks: [
     // which networks to include (see FOLLOW NETWORKS)
     'twitter',
@@ -108,7 +68,6 @@ export const InlineFollowButtonsConfig: InlineFollowButtonsConfigType = {
     'instagram',
     'youtube',
   ],
-  padding: 8, // padding within buttons (INTEGER)
   profiles: {
     // social profile links for buttons
     twitter: 'sharethis',
@@ -116,7 +75,4 @@ export const InlineFollowButtonsConfig: InlineFollowButtonsConfigType = {
     instagram: 'sharethis',
     youtube: '/channel/UCbM93niCmdc2RD9RZbLMP6A?view_as=subscriber',
   },
-  radius: 9, // the corner radius on each button (INTEGER)
-  size: 32, // the size of each button (INTEGER)
-  spacing: 8, // the spacing between buttons (INTEGER)
 };
