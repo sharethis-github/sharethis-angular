@@ -163,8 +163,6 @@ const inlineFollowButtonsConfig: InlineFollowButtonsConfig = {
   action: 'Follow us:', // call to action (STRING)
   action_enabled: true, // show/hide call to action (true, false)
   action_pos: 'bottom', // position of call to action (left, top, right)
-  Support
-  © 2022 ShareThis. All Rights Reserved.
   alignment: 'center', // alignment of buttons (left, center, right)
   color: 'white', // set the color of buttons (social, white)
   enabled: true, // show/hide buttons (true, false)
