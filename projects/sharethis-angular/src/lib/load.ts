@@ -1,3 +1,10 @@
+import {
+  InlineFollowButtonsConfig,
+  InlineReactionButtonsConfig,
+  InlineShareButtonsConfig,
+  StickyShareButtonsConfig,
+} from './types';
+
 declare global {
   interface Window {
     onShareThisLoaded: () => void;
@@ -5,7 +12,17 @@ declare global {
   }
 }
 
-export default function (component, product) {
+interface Component {
+  config: (
+    | StickyShareButtonsConfig
+    | InlineFollowButtonsConfig
+    | InlineReactionButtonsConfig
+    | InlineShareButtonsConfig
+  ) & { id?: string; property?: string };
+  buttons: HTMLElement;
+}
+
+export default function (component: Component, product: string) {
   // load config
   let config = component.config || { enabled: true };
   config = JSON.parse(JSON.stringify(config));
@@ -45,8 +62,8 @@ export default function (component, product) {
       product: product,
       source: 'angularjs',
     };
-    const query = Object.keys(params)
-      .map((key) => key + '=' + params[key])
+    const query = Object.entries(params)
+      .map(([key, value]) => key + '=' + value)
       .join('&');
     script.src = 'https://platform-api.sharethis.com/js/sharethis.js?' + query;
     script.async = true;

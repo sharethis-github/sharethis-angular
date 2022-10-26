@@ -1,57 +1,94 @@
 export type SharingNetwork =
-  | 'blogger'
-  | 'delicious'
-  | 'digg'
-  | 'email'
   | 'facebook'
-  | 'flipboard'
-  | 'google'
-  | 'linkedin'
-  | 'livejournal'
-  | 'mailru'
-  | 'meneame'
-  | 'messenger'
-  | 'oknoklassniki'
-  | 'pinterest'
-  | 'print'
-  | 'reddit'
-  | 'sms'
-  | 'stumbleupon'
-  | 'tumblr'
   | 'twitter'
-  | 'vk'
-  | 'wechat'
-  | 'weibo'
+  | 'email'
+  | 'sms'
+  | 'sharethis'
+  | 'linkedin'
+  | 'messenger'
+  | 'pinterest'
+  | 'reddit'
+  | 'tumblr'
+  | 'digg'
   | 'whatsapp'
-  | 'xing';
+  | 'iorbix'
+  | 'kakao'
+  | 'kindleit'
+  | 'kooapp'
+  | 'outlook'
+  | 'tencentqq'
+  | 'trello'
+  | 'viber'
+  | 'yummly'
+  | 'vk'
+  | 'weibo'
+  | 'odnoklassniki'
+  | 'xing'
+  | 'print'
+  | 'blogger'
+  | 'flipboard'
+  | 'snapchat'
+  | 'meneame'
+  | 'mailru'
+  | 'livejournal'
+  | 'wechat'
+  | 'buffer'
+  | 'diaspora'
+  | 'douban'
+  | 'evernote'
+  | 'googlebookmarks'
+  | 'gmail'
+  | 'hackernews'
+  | 'instapaper'
+  | 'line'
+  | 'getpocket'
+  | 'qzone'
+  | 'refind'
+  | 'renren'
+  | 'surfingbird'
+  | 'skype'
+  | 'telegram'
+  | 'threema'
+  | 'yahoomail'
+  | 'wordpress'
+  | 'blm';
 
 export type FollowNetwork =
+  | 'facebook'
+  | 'twitter'
+  | 'instagram'
+  | 'youtube'
+  | 'flipboard'
+  | 'linkedin'
   | 'blogger'
   | 'digg'
-  | 'facebook'
-  | 'flipboard'
   | 'github'
-  | 'instagram'
   | 'medium'
   | 'messenger'
-  | 'linkedin'
-  | 'oknoklassniki'
+  | 'odnoklassniki'
   | 'patreon'
   | 'pinterest'
   | 'quora'
   | 'reddit'
   | 'snapchat'
-  | 'soundcloudm'
+  | 'soundcloud'
   | 'spotify'
   | 'telegram'
   | 'tumblr'
   | 'twitch'
-  | 'twitter'
   | 'vk'
   | 'wechat'
   | 'weibo'
   | 'yelp'
-  | 'youtube';
+  | 'airbnb'
+  | 'amazon'
+  | 'discord'
+  | 'etsy'
+  | 'houzz'
+  | 'tiktok'
+  | 'tripadvisor'
+  | 'vimeo'
+  | 'zillow';
 
 export type Reaction =
   | 'slight_smile'
@@ -63,26 +100,26 @@ export type Reaction =
 
 export type InlineShareButtonsConfig = {
   /** alignment of buttons */
-  alignment: 'center' | 'left' | 'right';
+  alignment?: 'center' | 'left' | 'right';
   /** set the color of buttons */
-  color: 'social' | 'white';
+  color?: 'social' | 'white';
   /** show/hide buttons */
-  enabled: boolean;
+  enabled?: boolean;
   /** font size for the buttons */
-  font_size: number;
+  font_size?: number;
   /** button labels */
-  labels: 'cta' | 'counts' | null;
+  labels?: 'cta' | 'counts' | null;
   /** which language to use */
-  language: string;
+  language?: string;
   /** which networks to include */
   networks: SharingNetwork[];
   /** padding within buttons */
-  padding: number;
+  padding?: number;
   /** the corner radius on each button */
-  radius: number;
-  show_total: boolean;
+  radius?: number;
+  show_total?: boolean;
   /** the size of each button */
-  size: number;
+  size?: number;
 
   /** the url to share, defaults to current url */
   url?: string;
@@ -102,79 +139,82 @@ export type InlineShareButtonsConfig = {
 
 export type InlineReactionButtonsConfig = {
   /** alignment of buttons */
-  alignment: 'center' | 'left' | 'right';
+  alignment?: 'center' | 'left' | 'right';
   /** show/hide buttons */
-  enabled: boolean;
+  enabled?: boolean;
   /** which language to use */
-  language: string;
+  language?: string;
   /** hide react counts less than min_count (INTEGER) */
-  min_count: number;
+  min_count?: number;
   /** padding within buttons */
-  padding: number;
+  padding?: number;
   /** which reactions to include (see REACTIONS) */
   reactions: Reaction[];
-  /** the corner radius on each button */
-  radius: number;
-  show_total: boolean;
   /** the size of each button */
-  size: number;
+  size?: number;
 };
 
 export type InlineFollowButtonsConfig = {
   /** call to action */
-  action: string;
+  action?: string;
   /** show/hide call to action */
-  action_enabled: boolean;
+  action_enabled?: boolean;
   /** position of call to action (left, top, right) */
-  action_pos: string;
+  action_pos?: string;
   /** alignment of buttons */
-  alignment: 'center' | 'left' | 'right';
+  alignment?: 'center' | 'left' | 'right';
   /** set the color of buttons */
-  color: 'social' | 'white';
+  color?: 'social' | 'white';
   /** show/hide buttons */
-  enabled: boolean;
+  enabled?: boolean;
   /** which networks to include */
   networks: FollowNetwork[];
   /** padding within buttons */
-  padding: number;
+  padding?: number;
   /** social profile links for buttons */
-  profiles: { [key in FollowNetwork]: string };
+  profiles: { [key in FollowNetwork]?: string };
   /** the corner radius on each button */
-  radius: number;
+  radius?: number;
   /** the size of each button */
-  size: number;
+  size?: number;
+  /** spacing between buttons */
+  spacing?: number;
+  /** the url to share, defaults to current url */
+  url?: string;
 };
 
 export type StickyShareButtonsConfig = {
   /** alignment of buttons */
-  alignment: 'center' | 'left' | 'right';
+  alignment?: 'center' | 'left' | 'right';
   /** set the color of buttons */
-  color: 'social' | 'white';
+  color?: 'social' | 'white';
   /** show/hide buttons */
-  enabled: boolean;
+  enabled?: boolean;
   /** font size for the buttons */
-  font_size: number;
+  font_size?: number;
   /** button labels */
-  labels: 'cta' | 'counts' | null;
+  labels?: 'cta' | 'counts' | null;
   /** which language to use */
-  language: string;
+  language?: string;
   /** hide react counts less than min_count (INTEGER) */
-  min_count: number;
+  min_count?: number;
+  /** padding within buttons */
+  padding?: number;
+  /** the corner radius on each button */
+  radius?: number;
+  show_total?: boolean;
+  /** show/hide the buttons on mobile (true, false) */
+  show_mobile?: boolean;
+  /** show/hide the toggle buttons (true, false) */
+  show_toggle?: boolean;
+  /** the size of each button */
+  size?: number;
+  /** offset in pixels from the top of the page */
+  top?: number;
+  /** offset in pixels from the top of the page */
+  hide_desktop?: boolean;
   /** which networks to include */
   networks: SharingNetwork[];
-  /** padding within buttons */
-  padding: number;
-  /** the corner radius on each button */
-  radius: number;
-  show_total: boolean;
-  /** show/hide the buttons on mobile (true, false) */
-  show_mobile: boolean;
-  /** show/hide the toggle buttons (true, false) */
-  show_toggle: boolean;
-  /** the size of each button */
-  size: number;
-  /** offset in pixels from the top of the page */
-  top: number;
 
   /** the url to share, defaults to current url */
   url?: string;

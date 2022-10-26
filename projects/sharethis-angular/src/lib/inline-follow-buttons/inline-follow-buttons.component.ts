@@ -9,8 +9,21 @@ import {
 import load from '../load';
 import { InlineFollowButtonsConfig } from '../types';
 
+const DEFAULT_CONFIG: Partial<InlineFollowButtonsConfig> = {
+  action: 'Follow us',
+  action_enabled: true,
+  action_pos: 'center',
+  alignment: 'center',
+  color: 'social',
+  enabled: true,
+  padding: 12,
+  radius: 4,
+  size: 40,
+  spacing: 8,
+};
+
 @Component({
-  selector: 'lib-inline-follow-buttons',
+  selector: 'st-inline-follow-buttons',
   template: '<div #buttons>&nbsp;</div>',
 })
 export class InlineFollowButtonsComponent implements OnInit {
@@ -27,7 +40,7 @@ export class InlineFollowButtonsComponent implements OnInit {
   ngAfterViewInit() {
     load(
       {
-        config: this.config,
+        config: { ...DEFAULT_CONFIG, ...this.config },
         buttons: this.buttons.nativeElement,
       },
       'inline-follow-buttons'

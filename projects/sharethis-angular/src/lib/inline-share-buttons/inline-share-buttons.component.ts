@@ -9,8 +9,21 @@ import {
 import load from '../load';
 import { InlineShareButtonsConfig } from '../types';
 
+const DEFAULT_CONFIG: Partial<InlineShareButtonsConfig> = {
+  alignment: 'center',
+  color: 'social',
+  enabled: true,
+  font_size: 16,
+  labels: 'cta',
+  language: 'en',
+  padding: 12,
+  radius: 4,
+  size: 40,
+  show_total: true,
+};
+
 @Component({
-  selector: 'lib-inline-share-buttons',
+  selector: 'st-inline-share-buttons',
   template: '<div #buttons>&nbsp;</div>',
 })
 export class InlineShareButtonsComponent implements OnInit {
@@ -27,7 +40,7 @@ export class InlineShareButtonsComponent implements OnInit {
   ngAfterViewInit() {
     load(
       {
-        config: this.config,
+        config: { ...DEFAULT_CONFIG, ...this.config },
         buttons: this.buttons.nativeElement,
       },
       'inline-share-buttons'
