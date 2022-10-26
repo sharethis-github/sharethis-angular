@@ -1,6 +1,6 @@
 {
   "name": "sharethis-angular",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -36,5 +36,14 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "ng-packagr": "^14.1.0",
     "typescript": "~4.7.2"
-  }
+  },
+  "keywords": [
+    "Angular",
+    "ShareThis",
+    "share buttons",
+    "sharing buttons",
+    "follow buttons",
+    "reaction buttons",
+    "social"
+  ]
 }

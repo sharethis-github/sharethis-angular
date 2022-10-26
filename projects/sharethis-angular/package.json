@@ -1,11 +1,20 @@
 {
   "name": "sharethis-angular",
-  "version": "2.1.0",
+  "version": "2.1.3",
   "peerDependencies": {
     "@angular/common": "^14.1.0",
     "@angular/core": "^14.1.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "keywords": [
+    "Angular",
+    "ShareThis",
+    "share buttons",
+    "sharing buttons",
+    "follow buttons",
+    "reaction buttons",
+    "social"
+  ]
 }
