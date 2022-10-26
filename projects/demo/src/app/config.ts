@@ -55,9 +55,6 @@ export const InlineReactionButtonsConfig: InlineReactionButtonsConfigType = {
     'sob',
     'rage',
   ],
-
-  // OPTIONAL PARAMETERS
-  url: 'https://www.sharethis.com', // (defaults to current url)
 };
 
 export const InlineFollowButtonsConfig: InlineFollowButtonsConfigType = {

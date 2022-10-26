@@ -16,7 +16,6 @@ const DEFAULT_CONFIG: Partial<InlineReactionButtonsConfig> = {
   min_count: 0,
   padding: 12,
   size: 40,
-  spacing: 8,
 };
 
 @Component({

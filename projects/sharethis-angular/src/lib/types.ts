@@ -152,10 +152,6 @@ export type InlineReactionButtonsConfig = {
   reactions: Reaction[];
   /** the size of each button */
   size?: number;
-  /** spacing between buttons */
-  spacing?: number;
-  /** the url to share, defaults to current url */
-  url?: string;
 };
 
 export type InlineFollowButtonsConfig = {
